@@ -1,0 +1,43 @@
+<div >
+    <h3>
+        <p>Top {{type}} Coupons</p>
+    </h3>
+  </div >
+  
+  <div class="card-deck">
+  <div *ngFor="let c of coupons"> 
+  <div class="card">
+      <img src="{{c.image}}" alt="Denim Jeans" >
+    <h5>{{c.title}}</h5>
+    <p class="price">Price - {{c.price}}$</p>
+      <p><button type="button" (click)="showHEALTHCoupon(c)"class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Purchase</button>
+      </p>
+    </div> 
+  </div>
+  </div>
+  
+  
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{healthCoupon.title}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           <p> <b>Messege : </b>{{healthCoupon.messege}}</p> <div><img src="{{healthCoupon.image}}"  ></div>
+            <p><b>Valid From : </b>{{healthCoupon.startDate | date:"yyyy-MM-dd"}}</p>
+            <p><b>Experation Date : </b>{{healthCoupon.endDate | date:"yyyy-MM-dd"}}</p>
+            <p><b>In Stok : </b>{{healthCoupon.amount}}</p>
+            <p><b>Price : </b>{{healthCoupon.price}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="PurchaseCoupon(healthCoupon.id)">   
+                Purchase Coupon</button>    
+          </div>
+        </div>
+      </div>
+    </div>
+

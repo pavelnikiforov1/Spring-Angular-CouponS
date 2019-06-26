@@ -1,0 +1,112 @@
+<section  >
+    <table class=" table table-dark table-hover" style="float: left ">
+        <thead>
+          <tr>
+            <th>ID:</th>
+            <th>Category:</th>
+            <th>Title:</th>
+            <th>Messege:</th>
+            <th>Image Url:</th>
+            <td>In Stock:</td>
+            <th>Price:</th>
+            <th>Start Date:</th>
+            <th>Exparetion Date:</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of companyCoupons" >
+            <td >{{c.id}}</td>
+            <td >{{c.type}}</td>
+            <td>{{c.title}}</td>
+            <td style="width: 25%"  >{{c.messege}}</td>
+            <td> <img id="myImg" src="{{c.image}}" alt="Snow" style="width:75%;max-width:75px"></td>
+            <td>{{c.amount}}</td>
+            <td>{{c.price}}</td>
+            <td>{{c.startDate | date: "dd/MM/yyyy"}}</td>
+            <td>{{c.endDate | date: "dd/MM/yyyy"}}</td>
+            <td> <button type="button" (click)="showCoupon(c)"class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                view Coupon
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+   
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"   aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{coupon.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+         <p><b>ID:</b>  {{coupon.id}}</p>
+         <p> <b>Messege :</b>{{coupon.messege}}</p>
+          <p><b>Valid From :</b>{{coupon.startDate | date: "dd/MM/yyyy" }}</p>
+          <p><b>Experation Date :</b>{{coupon.endDate | date: "dd/MM/yyyy" }}</p>
+          <p><b>In Stok :</b>{{coupon.amount}}</p>
+          <p><b>Price :</b>{{coupon.price}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  data-dismiss="modal"  (click)="deleteCoupon(coupon.id)">   
+            Delete Coupon</button>
+          <button type="button" class="btn btn-primary"  data-toggle="modal" data-dismiss="modal" data-target="#exampleModal1" >
+              Update Coupon
+            </button>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5>Coupon Updating Form</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+             
+                  <body>
+                  <div class="container">
+
+                    <form #Validation="ngForm" action="/action_page.php" class="was-validated">
+                      <div class="form-group">
+                          <label for="ExpirationD">Choose New Expiration Date:</label>
+                          <input type="date" class="form-control" id="ExpirationD"  min="2019-21-06" max="2030-06-21" [(ngModel)]="coupon.endDate" placeholder="Enter Expiration Date" name="ExpirationD" required>
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Available Amount Int Stock:</label>
+                            <input type="number" class="form-control" id="amount" min="1" max="10000" [(ngModel)]="coupon.amount" placeholder="Enter Available Amount" name="amount" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                          </div>
+                      
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateCoupon()" [disabled]="!Validation.form.valid" >Submit</button>
+                        </div>
+                    </form>
+                  </div>
+                
+                  </body>
+                
+          </div>
+         
+          
+        </div>
+      </div>
+    </div>
+
+
+  

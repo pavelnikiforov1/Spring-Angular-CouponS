@@ -1,0 +1,88 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Anton|Faster+One&display=swap');
+    </style>
+
+<div >
+    <div class="jumbotron">
+      <h1>Wellcome To RESTAURANTS</h1>      
+      <h5>Here you can find the bast deals in the world of RESTAURANTS!</h5>
+    </div>
+  </div>
+
+
+
+<div class="card-group" >
+    <div class="card mb-4">
+      <div class="view overlay">
+        <img class="card-img-top" src="{{bestSellarCoupon1.image}}" alt="Card image cap">
+        
+            <div class="top-left"><h3>BEST SELLER</h3></div>
+          <div class="mask rgba-white-slight"></div>
+      </div >
+     
+      <div class="card-body" >
+        <h4 class="card-title" >{{bestSellarCoupon1.title}}</h4>
+        <p class="card-text" >{{bestSellarCoupon1.messege}}</p>
+        <button type="button"  (click)="showCoupon(bestSellarCoupon1)"class="btn btn-primary" data-target="#exampleModal" data-toggle="modal" >Purchase</button>
+      </div>
+    </div>
+  
+    <div class="card mb-4" id="grid">
+  
+      <div class="view overlay" >
+        <img class="card-img-top" src="{{bestSellarCoupon2.image}}" alt="Card image cap">
+        <div class="top-right"><h3>BEST SELLER</h3></div>
+          <div class="mask rgba-white-slight"></div>
+        
+      </div>
+  
+      <div class="card-body"  >
+        <h4 class="card-title" id="1">{{bestSellarCoupon2.title}}</h4>
+        <p class="card-text" id="2">{{bestSellarCoupon2.messege}}</p>
+        <button type="button" id="3" (click)="showCoupon(bestSellarCoupon2)"class="btn btn-primary" data-target="#exampleModal" data-toggle="modal" >Purchase</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="card-deck">
+      <div *ngFor="let c of coupons"> 
+      <div class="card">
+          <img src="{{c.image}}" alt="Denim Jeans" style="width:100%;
+          height:150px;">
+          <h5>{{c.title}}</h5>
+          <p class="price">Price - {{c.price}}$</p>
+          <p><button type="button" (click)="showCoupon(c)"class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Purchase</button>
+          </p>
+        </div> 
+      </div>
+      </div>
+      
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{coupon.title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <p> <b>Messege :</b>{{coupon.messege}}</p><div><img src="{{coupon.image}}"  ></div>
+                <p><b>Valid From :</b>{{coupon.startDate | date :"yyyy-MM-dd" }}</p>
+                <p><b>Experation Date :</b>{{coupon.endDate | date :"yyyy-MM-dd"}}</p>
+                <p><b>In Stok :</b>{{coupon.amount}}</p>
+                <p><b>Price :</b>{{coupon.price}}</p>
+              
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary"  data-dismiss="modal"   (click)="PurchaseCoupon(coupon.id)" >   
+                    Purchase Coupon</button>    
+              </div>
+            </div>
+          </div>
+        </div>
+      
+       
+      

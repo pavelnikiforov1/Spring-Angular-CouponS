@@ -1,0 +1,66 @@
+<section class="container">
+  <body>
+  
+  <div class="container">
+    <h2>Add A Coupon Form</h2>
+    <p>please fill in the date properly </p>
+    <form #Validation="ngForm" action="/action_page.php" class="was-validated">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" maxlength="25" [(ngModel)]="coupon.title" placeholder="Enter Title" name="title" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="Message">Message:</label>
+        <input type="text" class="form-control" id="Message" maxlength="1000" [(ngModel)]="coupon.messege" placeholder="Enter Message" name="Message" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+          <label for="StartingD">Starting Date: </label>
+          <input type="date" class="form-control" id="StartingD" min="{{ date | date: 'yyyy-MM-dd'}}" max="2030-12-28" [(ngModel)]="coupon.startDate" placeholder="Enter  Starting Date" name=" StartingD" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="ExpirationD">Expiration Date:</label>
+            <input type="date" class="form-control" id="ExpirationD" min="{{ coupon.startDate | date: 'yyyy-MM-dd'}}" max="2030-12-28" [(ngModel)]="coupon.endDate" placeholder="Enter Expiration Date" name="ExpirationD" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group">
+              <label for="Image">Image URL:</label>
+              <input type="text" class="form-control" id="Image"  [(ngModel)]="coupon.image" placeholder="Enter Image URL" name="Image" required>
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="amount">Available Amount :</label>
+                <input type="number" class="form-control" id="amount" min="1"  max="10000" [(ngModel)]="coupon.amount" placeholder="Enter Available Amount" name="amount" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                  <label for="price">Price:</label>
+                  <input type="number" step="0.01" class="form-control" min="1"  max="10000" id="price" [(ngModel)]="coupon.price" placeholder="Enter Price" name="price" required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div>
+                    <label for="Category">Coupon Category</label>
+                    <select class="form-control" id="Category"  [(ngModel)]="coupon.type" name="Category" > 
+                      <option>RESTURANS</option>
+                      <option>ELECTRICITY</option>
+                      <option>HEALTH</option>
+                    </select>
+                    <br>
+
+                </div>
+    
+      <button type="submit" class="btn btn-primary" (click)="createCoupon()" [disabled]="!Validation.form.valid">Submit</button>
+    </form>
+  </div>
+  
+  </body>
+</section>

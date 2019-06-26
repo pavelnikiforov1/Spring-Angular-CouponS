@@ -1,0 +1,23 @@
+
+.container{
+    margin-top: 75px;
+    margin-left: 75px;
+    margin-right: 1px;
+}
+
+section{
+    margin-top: 75px;
+    margin-left: 75px;
+    margin-right: 1px;
+}
+.modal-header{
+    float: left;
+}
+
+
+button{
+    position: relative;
+    margin-bottom: 10px;
+    
+}
+

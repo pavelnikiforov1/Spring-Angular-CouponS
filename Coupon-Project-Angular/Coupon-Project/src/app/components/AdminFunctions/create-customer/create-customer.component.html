@@ -1,0 +1,29 @@
+<section class="container">
+    <body>
+    
+    <div class="container">
+      <h2>Add A Customer Form</h2>
+      <p>please fill in the date properly </p>
+      <form #Validation="ngForm" action="/action_page.php" class="was-validated">
+        <div class="form-group">
+          <label for="title">Name:</label>
+          <input type="text" class="form-control" id="Name" [(ngModel)]="customer.custName" placeholder="Enter Name" name="title" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+          <label for="Message">Password:</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="customer.password" placeholder="Enter Password" name="password" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+          
+        <button type="submit" class="btn btn-primary" (click)="creatCustomer()" data-dismiss="modal"   [disabled]="!Validation.form.valid">Submit</button>
+      </form>
+    </div>
+    
+    </body>
+  </section>
+
+
+  

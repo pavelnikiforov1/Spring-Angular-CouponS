@@ -1,0 +1,129 @@
+
+<div  class="container" >
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Company Name</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let c of companies">
+      <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.password}}</td>
+        <td>{{c.email}}</td>
+        <td><button (click)="showCompanyCoupons(c.id)" class="btn btn-primary">Show My Coupons</button></td>
+        <td><button (click)="showCompany(c)" class="btn btn-primary"  data-toggle="modal" data-dismiss="modal" data-target="#exampleModal" >Show Company</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<section class="container" >
+  <table class=" table table-dark table-hover" >
+      <thead>
+        <tr>
+          <th>ID:</th>
+          <th>Category:</th>
+          <th>Title:</th>
+          <th>Messege:</th>
+          <th>Image Url:</th>
+          <td>In Stock:</td>
+          <th>Price:</th>
+          <th>Start Date:</th>
+          <th>Exparetion Date:</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of companyCoupons" >
+          <td >{{c.id}}</td>
+          <td >{{c.type}}</td>
+          <td>{{c.title}}</td>
+          <td>{{c.messege}}</td>
+          <td> <img id="myImg" src="{{c.image}}" alt="Snow" style="width:75%;max-width:75px"></td>
+          <td>{{c.amount}}</td>
+          <td>{{c.price}}</td>
+          <td>{{c.startDate | date: "dd/MM/yyyy"}}</td>
+          <td>{{c.endDate | date: "dd/MM/yyyy"}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+ 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{company.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p>Password : {{company.password}}</p>
+       <p>Email : {{company.email}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-dismiss="modal"  (click)="deleteCompany()" data-toggle="modal" data-dismiss="modal" data-target="#secssesCompanyDelete">   
+          Delete Company</button>
+        <button type="button" class="btn btn-primary"  data-toggle="modal" data-dismiss="modal" data-target="#exampleModal1" >
+            Update Company
+          </button>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5>Company Updating Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <body>
+            <div >
+              <form #loginValidation="ngForm" action="/action_page.php" class="was-validated">
+               
+                <div class="form-group">
+                    <label for="ExpirationD">New Password:</label>
+                    <input type="Password" class="form-control" id="Password" min="1" max="5" [(ngModel)]="company.password" placeholder="Enter New Password" name="Password" required>
+                    <div class="valid-feedback">Valid.</div>  
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <div class="form-group">
+                      <label for="amount">New Email:</label>
+                      <input type="email" class="form-control" id="Email" [(ngModel)]="company.email" placeholder="Enter New Email" name="Email" required>
+                      <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+              </form>
+            </div>
+            
+            </body>
+          
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-dismiss="modal"  (click)="updateCompany()"  [disabled]="!loginValidation.form.valid">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  

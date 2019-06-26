@@ -1,0 +1,110 @@
+h1,h5{
+    text-align: center;
+    
+    font-family: 'Anton', sans-serif;
+  }
+  .top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  
+  font-family: 'Faster One', cursive;
+  
+  }
+  
+  .card h5{
+  font-family:arial;
+  }
+  
+  .top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-family: 'Faster One', cursive;
+  }
+  .top-left h3{
+  font-size: 50px;
+  text-align: center;
+  
+  }
+  .top-right  h3{
+  font-size: 50px;
+  text-align: center;
+  }
+  
+  .card-deck .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 175px;
+    margin: 7px;
+    text-align: center;
+    font-family: arial;
+    display:inline-block;
+    opacity: 1;
+    filter: alpha(opacity=50);
+    margin-left: 15px;
+  }
+  .modal{
+    opacity: 1;
+    filter: alpha(opacity=50);
+  }
+  .card-deck  .card:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=100); 
+  }
+  
+  
+  .price {
+    color: grey;
+    font-size: 15px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;  
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    position: absolute;
+  right: 0;
+  bottom: 0; 
+    
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+  .card-deck{
+    margin-left: 50px
+  }
+  
+  .view  img{
+    width: 843px;
+    height: 600px;
+  }
+  
+  #grid {
+    display: grid;
+    height: 100px;
+    grid-template-rows: 30px 1fr;
+  }
+  
+  div img{
+    width: 200px;
+    float: right;
+   
+  }
+  
+  .modal-content{
+    background-image: url('src\assets\imeges\green.jpg');
+    border: solid black 1px;
+  }
+
+  p{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-block-end: 3em;
+  }

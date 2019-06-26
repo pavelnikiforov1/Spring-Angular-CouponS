@@ -1,0 +1,11 @@
+a{
+    font-family: 'Offside', cursive;
+}
+ul li{
+    display: inline-block;
+}
+
+
+a{
+    float: right;
+}

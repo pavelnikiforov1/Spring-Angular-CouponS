@@ -1,0 +1,27 @@
+
+<div class="wrapper bg-light">
+ 
+    <nav id="sidebar" class="bg-secondary" >
+        <div class="sidebar-header  bg-secondary">
+            <a routerLink="customerPersonalArea"><h3>Personal Erea</h3></a>
+        </div>
+  
+        <ul class="list-unstyled components  bg-secondary">
+            <li class="active">
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle  bg-secondary">Actions</a>
+              <ul class="collapse list-unstyled  bg-secondary" id="pageSubmenu">
+                  <li>
+                      <a class="dropdown-item nav-link" routerLink="/customerPersonalArea/viewAllCoupons">Show All Of My Coupons</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item nav-link" routerLink="/customerPersonalArea/viewAllCouponsByType">Show Coupons By Type</a>
+                </li>
+                <li>
+                    <a class="dropdown-item nav-link" routerLink="/customerPersonalArea/viewAllCouponsByPrice">Show Coupons By Price</a>
+                </li>
+                 
+              </ul>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,44 @@
+
+
+
+<div class="wrapper bg-light">
+ 
+  <!-- Sidebar -->
+  <nav id="sidebar"  class="bg-secondary" >
+      <div class="sidebar-header bg-secondary">
+          <a routerLink="/adminPersonalArea "><h3>Personal Erea</h3></a>
+      </div>
+
+      <ul class="list-unstyled components bg-secondary">
+          <li class="active ">
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle bg-secondary">Actions</a>
+            <ul class="collapse list-unstyled bg-secondary" id="pageSubmenu">
+              <li>
+                    <a href="#s" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Company Actions</a>
+                    <ul class="collapse list-unstyled" id="s">
+                        <li>
+                            <a class="dropdown-item" routerLink="/adminPersonalArea/createCompany">Add a New Company</a>
+                        </li>
+                      <li>
+                        <a class="dropdown-item"routerLink="/adminPersonalArea/viewAllOfYourCompanies">View All of Company</a>
+                    </li>
+                      </ul>
+                </li>
+                
+                <li>
+                    <a href="#pageSubmenus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Customer Actions</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenus">
+                        <li>
+                            <a class="dropdown-item" routerLink="/adminPersonalArea/createCustomer">Add a New Customer</a>
+                        </li>
+                      <li>
+                        <a class="dropdown-item"routerLink="/adminPersonalArea/viewAllCustomers">View All Of Your Customers</a>
+                    </li>
+
+                      </ul>
+                </li>
+            </ul>
+      </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
